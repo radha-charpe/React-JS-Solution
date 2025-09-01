@@ -1,0 +1,123 @@
+ 
+
+function App() {
+  //1. Student Greeting
+  const student = { name: 'Radha', Age: 20 };
+  //2.Product price calculation
+  const product = { pname: 'Pen', quantity: 10, pricePerUnit: 5 };
+  const totalCost = product.quantity * product.pricePerUnit;
+  //3.Conditional Attendance status
+  const std = { name1: 'Anjali', name2: 'Rani' };
+  //Anjali present and Rani Absent
+  const isPresent = true;
+  // 4.Full name Formatting
+  const firstName = 'Radha';
+  const lastName = 'Charpe';
+  // 5.Loan EMI Display
+  const loan = {
+    loanAmt: 500000,
+    interasteRate: 8,
+    tenureYears: 5
+  };
+  const P = loan.loanAmt;
+  const R = loan.interasteRate / (12 * 100);
+  const N = loan.tenureYears * 12;
+  const EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+  //6.Fav Sub List
+  const stud = {
+    name: 'Raj', sub: ["Math", "Science", "English"]
+  };
+//7.Employee  salary braekdown
+  const Emp = {
+    employeeName: 'Anuj',
+    basic: 25000,
+    hra: 10000,
+  };
+  const TotalSalary = Emp.basic + Emp.hra;
+//8.Product Discounted Price
+  const products = {
+    item: 'SmartPhone',
+    price: 20000,
+    discount: 10
+  };
+  const FinalPrice = products.price - (products.price * products.discount / 100);
+  // 9.Online Order Summary
+const orders={
+  orderId:'ORD1234',
+  customer:'Meena',
+  items: 4,
+  itemPrice : 3200
+
+};
+const TotalPrice= orders.itemPrice*orders.items;
+//  10.Weather Report
+const weatherReport={city:'Mumbai' ,temp :30};
+const fahrenheit=(weatherReport.temp*9/5)+32;
+
+  return (
+    <>
+      1. Student Greeting
+      <h2>Hello EveryOne!!!</h2>
+      <h2> MyName : {student.name}</h2>
+      <h2>MyAge :  {student.Age}</h2>
+      <hr />
+      2.Product price calculation
+      <h2> Product Name : {product.pname}</h2>
+      <h2>Product Quantity : {product.quantity}</h2>
+      <h2>  Price Per Unit : {product.pricePerUnit}</h2>
+      <h2>Total Cost : {totalCost}</h2>
+      <hr />
+
+      3.Conditional Attendance status
+      <h2>
+        {isPresent ? <p>{std.name1}-Present</p> : <p>{std.name2}-Absent</p>}
+      </h2>
+      <hr />
+      4.Full name Formatting
+      <h2>FullName : {firstName + " " + lastName}</h2>
+      <hr />
+      5.Loan EMI Display
+      <h2>Loan Amount : {loan.loanAmt}</h2>
+      <h2>Interest Rate : {loan.interasteRate}</h2>
+      <h2>  Tenure : {loan.tenureYears}</h2>
+      <h2>EMI : {EMI.toFixed(2)}</h2>
+      <hr />
+      6.Fav Sub List
+      <h2>Student Name: {stud.name}</h2>
+      <h2> Fav Sub </h2>
+      <ul>
+        {stud.sub.map((subjects, index) => (
+          <li key={index}>{subjects}</li>
+        ))}
+      </ul>
+      <hr />
+      7.Employee  salary braekdown
+      <h2> Employee Name : {Emp.employeeName}</h2>
+      <h2> Basic : {Emp.basic}</h2>
+      <h2> HRA : {Emp.hra}</h2>
+      <h2>Total Salary  : {TotalSalary}</h2>
+      <hr />
+      8.Product Discounted Price
+      <h2>Item Name : {products.item} </h2>
+      <h2>Price : {products.price}</h2>
+      <h2>Discount : {products.discount}%</h2>
+      <h2> Final Price : {FinalPrice}</h2>
+      <hr />
+      9.Online Order Summary
+      <h2> Order Id : {orders.orderId}</h2>
+      <h2>Customer Name : {orders.customer}  </h2>
+      <h2> Items Quantity : {orders.items}</h2>
+      <h2> Items Price : {orders.itemPrice}</h2>
+      <h2> Total Price of all item : {TotalPrice} </h2>
+    <hr />
+    10.Weather Report
+    <h2> City : {weatherReport.city}</h2>
+    <h2> Temperature : {weatherReport.temp}C</h2>
+    <h2>In fahrenheit : {fahrenheit}F</h2>
+    <hr />
+    </>
+  );
+}
+
+
+export default App
