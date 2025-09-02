@@ -1,0 +1,96 @@
+
+import './App.css'
+import CartItem from './CartItem';
+import Course from './Course';
+import Employee from './Employee';
+import Greeting from './Greeting';
+import Movie from './Movie';
+import Post from './Post';
+import Product from './Product';
+import Student from './Student';
+import UserCard from './UserCard';
+import Weather from './Weather';
+
+
+function App() {
+//1  Creating User Card Component
+const uCard={
+  name:'Rohit Mehta',
+  email:'rohit.mehta@example.com',
+  role:'Admin'
+}
+//2 Product Info Component
+const productInfo={ productName:'Bluetooth Headphone',
+  price:2499,
+  
+}
+const inStock=true;
+//3 Greeting Component
+const name={name:'Sneha'}
+//4 Blog Post Component
+const blogPost={
+  title:'Greeting start with react',
+  author:'Kunal Verma',
+  content:'React is javascript library for building user interface'
+}
+//5 Student Marks Component
+const std={
+  name:'Aditi Shrama',
+  rollNo:'STU102',
+  marks:35
+ 
+}
+ //6 Employee Salary Component
+  const emp={
+    name:'Rajesh Kumar',
+    department:'Finance',
+    salary:55000
+  }
+  //7 Movie Component with nested props
+  const mv={
+    title:'3 Idiots',
+    director:{
+      name:'Rajkumar Hirani',
+      age:60
+    }
+  }
+  //8 Shopping Cart Item Component
+  const cItem={
+    item:'Laptop',
+    quantity:2,
+    price:45000
+  }
+  //9 Course Component with Array Props
+
+  const crs={courseName:'Full Stack Development' ,
+   modules:["HTML","CSS","JavaScript","Node.js" ]
+  }
+  const total=cItem.quantity*cItem.price
+  //10 Weather Report Component
+  const WeatherReport={
+    city:'Delhi',
+    temperatureC:28,
+    condition:'sunny'
+
+
+  }
+  const frht=(WeatherReport.temperatureC*9/5)+32
+
+  
+  return (
+    <>
+     <UserCard data={uCard} />
+     <Product data={productInfo} inStock={inStock}/>
+     <Greeting data={name} />
+     <Post data={blogPost}/>
+     <Student data={std}/>
+     <Employee data={emp}/>
+     <Movie data={mv}/>
+     <CartItem data={cItem} data1={total} />
+     <Course data={crs}/>
+     <Weather data={WeatherReport} data1={frht}/>
+    </>
+  )
+}
+
+export default App
